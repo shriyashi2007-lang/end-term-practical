@@ -1,22 +1,22 @@
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-
+import {useState} from "react";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <nav style={{ marginBottom: '20px' }}>
-        <NavLink to="/" >Home</NavLink> |{" "}
-        <NavLink to="/about" >About</NavLink> |{" "}
-        <NavLink to="/contact">Contact</NavLink>
-      </nav>
+  const [name,setName] = useState("");
 
-      {}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+  return (
+    <div style={{ padding: "50px"}}>
+      <h2>Enter your name:</h2>
+
+      <input
+        type="text"
+        placeholder="your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <p>You typed: {name}</p>
+    </div>
   );
 }
 
+export default App;
